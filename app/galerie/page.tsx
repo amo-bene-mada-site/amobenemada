@@ -1,100 +1,98 @@
-// app/galerie/page.tsx
+import Link from "next/link";
 
 export default function GaleriePage() {
-  // Plus tard, on mettra ici de vraies photos / vidéos
-  // éventuellement chargées depuis un dossier public ou une base de données.
-
-  const exemplesPhotos = [
-    {
-      titre: "Les enfants de l'école St François",
-      description:
-        "Scène de vie à l'école d'Angodroabe, soutenue par AMO BENE MADA.",
-    },
-    {
-      titre: "Distribution de fournitures",
-      description:
-        "Cahiers, stylos et matériel scolaire offerts grâce aux dons.",
-    },
-    {
-      titre: "Repas à la cantine",
-      description:
-        "Un repas chaud pour les enfants, rendu possible par votre générosité.",
-    },
-  ];
-
   return (
-    <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+    <main className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
       {/* En-tête */}
-      <header className="space-y-4">
-        <p className="text-sm font-semibold text-emerald-700 uppercase tracking-wide">
-          Galerie
+      <header className="space-y-3">
+        <p className="text-sm font-semibold tracking-wide text-emerald-600 uppercase">
+          Témoignages en images
         </p>
         <h1 className="text-3xl sm:text-4xl font-bold text-gray-900">
-          Les visages et les projets que vous soutenez
+          Galerie photos & vidéos
         </h1>
         <p className="text-gray-700 max-w-3xl">
-          Découvrez en images la réalité de l&apos;école Saint François
-          d&apos;Assise d&apos;Angodroabe et des projets portés par AMO BENE
-          MADA. Ces photos et vidéos témoignent concrètement de l&apos;impact
-          de votre générosité.
+          Découvrez le quotidien des enfants de l&apos;école Saint François
+          d&apos;Assise d&apos;Angodroabe, les projets en cours et les actions
+          rendues possibles grâce à votre générosité.
         </p>
       </header>
 
-      {/* Bloc info “à venir” */}
-      <section className="rounded-2xl border border-emerald-100 bg-emerald-50 px-6 py-5 space-y-2">
-        <h2 className="text-lg font-semibold text-emerald-900">
-          Une galerie qui va s&apos;enrichir
-        </h2>
-        <p className="text-sm text-emerald-900/80">
-          Nous ajouterons prochainement davantage de photos et, si possible, des
-          vidéos : vie à l&apos;école, distribution de fournitures, chantiers,
-          rencontres avec les familles… Vous pourrez suivre l&apos;évolution
-          des projets presque en direct.
-        </p>
+      {/* Bloc Infos pratiques */}
+      <section className="grid gap-6 lg:grid-cols-[2fr,1fr] items-start">
+        <div className="space-y-4">
+          <h2 className="text-xl font-semibold text-gray-900">
+            Comment sont ajoutées les photos ?
+          </h2>
+          <p className="text-gray-700">
+            Pour le moment, les photos et vidéos sont ajoutées directement par
+            l&apos;équipe d&apos;AMO BENE MADA, à partir des retours reçus du
+            terrain (Angodroabe) et des bénévoles en France.
+          </p>
+          <p className="text-gray-700">
+            Si vous disposez de photos ou de vidéos liées à nos actions
+            (visites, événements, collectes, etc.), vous pouvez nous les envoyer
+            afin que nous les ajoutions à cette galerie.
+          </p>
+
+          <div className="flex flex-wrap gap-3">
+            <a
+              href="mailto:amobenemada@gmail.com?subject=Photos%20pour%20la%20galerie%20AMO%20BENE%20MADA"
+              className="inline-flex items-center justify-center rounded-full bg-emerald-600 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-emerald-700 transition"
+            >
+              Envoyer des photos par e-mail
+            </a>
+            <Link
+              href="/projets"
+              className="inline-flex items-center justify-center rounded-full border border-emerald-600 px-5 py-2.5 text-sm font-semibold text-emerald-700 hover:bg-emerald-50 transition"
+            >
+              Voir les projets en cours
+            </Link>
+          </div>
+        </div>
+
+        {/* Encadré info / transparence */}
+        <aside className="rounded-2xl border border-emerald-100 bg-emerald-50/60 p-4 space-y-2 text-sm text-emerald-900">
+          <h3 className="font-semibold text-emerald-900">
+            Respect des enfants et du droit à l’image
+          </h3>
+          <p>
+            Nous veillons à choisir des photos respectueuses de la dignité des
+            enfants et des familles. Certaines images peuvent être floutées ou
+            recadrées pour préserver leur intimité.
+          </p>
+          <p className="text-xs text-emerald-900/80">
+            Pour toute question ou demande de retrait d&apos;une photo, vous
+            pouvez nous écrire à{" "}
+            <a
+              href="mailto:amobenemada@gmail.com"
+              className="underline underline-offset-2"
+            >
+              amobenemada@gmail.com
+            </a>
+            .
+          </p>
+        </aside>
       </section>
 
-      {/* Grille d'exemples / futurs médias */}
+      {/* Bloc “Prochainement” */}
       <section className="space-y-4">
         <h2 className="text-xl font-semibold text-gray-900">
-          Premières images à mettre en avant
+          Bientôt : une galerie plus complète
         </h2>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {exemplesPhotos.map((item, index) => (
-            <article
-              key={index}
-              className="flex flex-col overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm"
-            >
-              {/* Emplacement photo */}
-              <div className="h-40 bg-gray-100 flex items-center justify-center text-xs text-gray-500 px-3 text-center">
-                Photo à ajouter ici
-                <br />
-                (importée plus tard dans le site)
-              </div>
-
-              <div className="p-4 space-y-2">
-                <h3 className="text-sm font-semibold text-gray-900">
-                  {item.titre}
-                </h3>
-                <p className="text-xs text-gray-600">{item.description}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      {/* Call to action vers les dons */}
-      <section className="rounded-2xl border border-amber-100 bg-amber-50 px-6 py-5 space-y-3">
-        <h2 className="text-lg font-semibold text-amber-900">
-          Chaque image raconte une histoire de solidarité
-        </h2>
-        <p className="text-sm text-amber-900/80">
-          Grâce à vos dons, cette galerie pourra montrer encore plus de
-          sourires, de salles de classe remplies et de projets achevés.
+        <p className="text-gray-700 max-w-3xl">
+          Nous travaillons à mettre en place une galerie plus riche, avec des
+          albums photos thématiques (école, cantine, construction, événements)
+          et des vidéos courtes présentant les projets sur place.
         </p>
-        <p className="text-sm text-amber-900/80">
-          Si vous le souhaitez, vous pouvez soutenir l&apos;école dès
-          maintenant en effectuant un don ponctuel ou mensuel.
+        <ul className="list-disc pl-5 text-gray-700 text-sm space-y-1">
+          <li>Photos de la vie quotidienne à l&apos;école</li>
+          <li>Suivi des projets financés (cantine, fournitures, bâtiment…)</li>
+          <li>Moments forts : fêtes, rencontres, témoignages</li>
+        </ul>
+        <p className="text-sm text-gray-600">
+          Merci pour votre patience et votre soutien — chaque don nous permet
+          d&apos;avancer concrètement aux côtés des enfants d&apos;Angodroabe.
         </p>
       </section>
     </main>

@@ -9,14 +9,15 @@ export default function Navigation() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  const links = [
+ const links = [
   { href: '/', label: 'Accueil' },
   { href: '/a-propos', label: 'À propos' },
   { href: '/projets', label: 'Projets' },
   { href: '/galerie', label: 'Galerie' },
   { href: '/contact', label: 'Contact' },
-  { href: '/admin', label: 'Admin' },
+  // { href: '/admin', label: 'Admin' }, // Lien masqué, page toujours accessible manuellement
 ];
+ 
 
 
   const isActive = (href: string) => pathname === href;
