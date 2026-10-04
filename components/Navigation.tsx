@@ -28,7 +28,7 @@ export default function Navigation() {
         <div className="flex justify-between items-center h-16">
           <div className="flex items-center">
             <Link href="/" className="text-xl font-bold text-gray-900">
-              Association
+              AMO BENE MADA
             </Link>
           </div>
 
